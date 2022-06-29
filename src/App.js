@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
 import CardList from './components/card-list/CardList.component';
+import SearchBar from './components/search-bar/SearchBar';
 
 class App extends Component {
 	constructor() {
@@ -31,7 +32,7 @@ class App extends Component {
 	};
 
 	render() {
-		const { monsters, searchField } = this.state;
+		const { monsters, searchField, onSearchChange } = this.state;
 
 		const filteredMonsters = monsters.filter((monster) => {
 			return monster.name.toLocaleLowerCase().includes(searchField);
@@ -39,13 +40,11 @@ class App extends Component {
 
 		return (
 			<div className='App'>
-				<input
+				<SearchBar
+					placeholder='search monster'
 					className='search-box'
-					type='search'
-					placeholder='Search'
-					onChange={this.onSearchChange}
+					onChangeHandler={onSearchChange}
 				/>
-
 				<CardList monsters={filteredMonsters} />
 			</div>
 		);
