@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 
 export class SearchBar extends Component {
+
+	
 	render() {
+		const {className, placeholder, onChangeHandler} = this.props
 		return (
 			<input
 				type='search'
-				className={this.props.className}
-				placeholder={this.props.placeholder}
-				onChange={this.props.onChangeHandler}
+				className={className}
+				placeholder={placeholder}
+				onChange={onChangeHandler}
 			/>
 		);
 	}
