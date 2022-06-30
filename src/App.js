@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Component } from 'react';
 import CardList from './components/card-list/CardList.component';
@@ -28,11 +27,12 @@ class App extends Component {
 		const searchField = event.target.value.toLocaleLowerCase();
 		this.setState(() => {
 			return { searchField: searchField };
-		});
+		}, console.log('searchField', searchField));
 	};
 
 	render() {
-		const { monsters, searchField, onSearchChange } = this.state;
+		const { monsters, searchField } = this.state;
+		const { onSearchChange } = this;
 
 		const filteredMonsters = monsters.filter((monster) => {
 			return monster.name.toLocaleLowerCase().includes(searchField);
@@ -42,7 +42,7 @@ class App extends Component {
 			<div className='App'>
 				<SearchBar
 					placeholder='search monster'
-					className='search-box'
+					className='monsters-search-box'
 					onChangeHandler={onSearchChange}
 				/>
 				<CardList monsters={filteredMonsters} />
