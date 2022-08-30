@@ -1,6 +1,6 @@
 import './searchbox.styles.css';
 
-const SearchBar = ({className,placeholder, onChangeHandler}) => {
+const SearchBar = ({className, placeholder, onChangeHandler}) => {
 	return (
 		<input
 			type='search'

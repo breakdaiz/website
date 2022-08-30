@@ -8,11 +8,15 @@ const App = () => {
 	const [monsters, setMonsters] = useState([]);
 	const [filteredMonsters, setFilterMonster] = useState(monsters);
 
+	// use effect for fetching data
+
 	useEffect((e) => {
 		fetch('https://jsonplaceholder.typicode.com/users')
 			.then((response) => response.json())
 			.then((users) => setMonsters(users));
 	}, []);
+
+	// useEffect for filtering
 
 	useEffect(
 		(e) => {
